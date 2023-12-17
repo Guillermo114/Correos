@@ -28,6 +28,6 @@ p{
     <p>
         {{$mensaje}}
     </p>
-    <
+    
 </body>
 </html>
