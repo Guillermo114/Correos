@@ -20,8 +20,6 @@ class Correo extends Mailable
      *
      * @return void
      */
-
-     //atributos del correo
     public $mensaje;
      
     public function __construct($mensaje)
@@ -40,7 +38,7 @@ class Correo extends Mailable
         return $this->view('plantillasCorreo.correo_plantilla')
         ->from('pruebadecorreo@new.com')
         ->subject('Mensaje de prueba')->with([
-            'mensaje' => $this->mensaje, // Pasar el mensaje a la vista
+            'mensaje' => $this->mensaje
         ]);
     }
 }

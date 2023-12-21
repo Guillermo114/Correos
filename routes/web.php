@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,3 +21,13 @@ Route::view('form', '_formulario');
 
 //correo
 Route::get('/enviar','EnviarController@enviar');
+
+
+
+
+
+
+
+
+
+    

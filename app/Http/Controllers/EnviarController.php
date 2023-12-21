@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Mail\Correo;
+use App\Jobs\EmailJob;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+
 
 class EnviarController extends Controller
 {
@@ -13,9 +12,14 @@ class EnviarController extends Controller
     public function enviar(Request $request)
     {
         $mensaje = $request->input('mensaje');
-        Mail::to('memo1145222@gmail.com')->send(new Correo($mensaje));
-        // Resto del código...
+     
+
+        EmailJob::dispatch($mensaje)->onQueue('enviarQueue');
+
         return view('plantillasCorreo.correo_enviado');
+
     }
     
 }
+
+   
